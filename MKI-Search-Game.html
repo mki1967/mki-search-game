@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+MKI SEARCHING GAME
+</title>
+<body>
+
+<h1> MKI SEARCHING GAME </h1>
+<img src="img/example-300.png" alt="example view">
+<p>
+Simple <a href="http://en.wikipedia.org/wiki/WebGL">WebGl</a> game written by <a href="https://sites.google.com/site/mki1967/">M.Kik</a>.
+</p>
+
+<h2>Instructions</h2>
+
+<h3> Goal of the game</h3>
+<p> 
+Your task is to find and collect tokens randomly scattered in a 3D stage.
+</p>
+
+<h3> How to play</h3>
+<p>
+To collect a token you have simply to approach it.
+You can go through the walls like a ghost.
+Your position can be modified by the following <em>actions</em>:
+<dl>
+<dt>UP</dt>
+  <dd>- moving or rotating upward (depending on the mode) </dd>
+<dt>DOWN</dt>
+  <dd>- moving or rotating downward (depending on the mode) </dd>
+<dt>LEFT</dt>
+  <dd>- moving or rotating leftward (depending on the mode) </dd>
+<dt>RIGHT</dt>
+  <dd>- moving or rotating rightward (depending on the mode) </dd>
+<dt>FORWARD</dt>
+  <dd>- moving forward </dd>
+<dt>BACK</dt>
+  <dd>- moving backward </dd>
+<dt>MOVE</dt>
+  <dd>- switch the mode to: 'moving' </dd>
+<dt>ROTATE</dt>
+  <dd>- switch the mode to: 'rotating' </dd>
+<dt>LEVEL</dt>
+  <dd>- set the observer upright</dd>
+</dl>
+</p>
+
+<p>
+You can use a <em>keyboard</em> or touch/click <em>sectors of the screen</em>.
+The following <em>keys</em> activate actions:
+<dl>
+<dt>'M'</dt> 
+  <dd>- MOVE</dd>
+<dt>'R'</dt> 
+  <dd>- ROTATE</dd>
+<dt>UpArrow</dt> 
+  <dd>- UP</dd>
+<dt>DownArrow</dt> 
+  <dd>- DOWN</dd>
+<dt>LeftArrow</dt> 
+  <dd>- LEFT</dd>
+<dt>RightArrow</dt> 
+  <dd>- RIGHT</dd>
+<dt>'F'</dt> 
+  <dd>- FORWARD</dd>
+<dt>'B'</dt> 
+  <dd>- BACK</dd>
+<dt>Space</dt> 
+  <dd>- LEVEL</dd>
+</dl>
+</p>
+
+<p>
+If you do not have any keyboard (i.e. on tablet), then you can touch or click distinct areas of the <em>screen</em>.
+The <em>screen</em> is divided into 3x3 <em>sectors</em> that activate actions according to the following scheme:
+<table border="1" style="width:300px">
+<tr>
+<td>MOVE</td> <td>UP</td> <td>FORWARD</td>
+</tr>
+<tr>
+<td>LEFT</td><td>LEVEL</td><td>RIGHT</td>
+</tr>
+<tr>
+<td>ROTATE</td><td>DOWN</td><td>BACK</td>
+</tr>
+</table>
+</p>
+
+<h3>Hints</h3>
+
+<p>
+<ul>
+<li>If you are using touch/click-screen method, 
+then the movement/rotation is started by one click, and any other click anywhere on the screen stops this action. 
+If you want to switch to moving/rotating you may need to click/touch the sector twice as the the first clicking/touching may be used
+for stopping movement/rotation. 
+</li>
+<li> If you see nothing and you have lost your orientation in the space, then switch to rotating mode and start to rotate in either left or right (in one directions). Soon you should see at least a line of the frame box surrounding the stage.
+</li>
+<li> If you are close to the token to be collected and you are using touch/click-screen method, then it is better to use 'rotating mode', 
+since the up/down/left/right movements may be too fast.
+</li>
+<li> Not all browsers on the tablets support WebGl. I have checked that it works fine on Firefox on my tablet.
+</li>
+</ul>
+</p>
+
+<h2>Available stages</h2>
+
+<p>
+Start the game by clicking on one of the following stages:
+</p>
+<p>
+<a href="stage1.html"><img src="img/icons/s1-icon.png" alt="stage1"></a> 
+<a href="stage2.html"><img src="img/icons/s2-icon.png" alt="stage1"></a> 
+<a href="stage3.html"><img src="img/icons/s3-icon.png" alt="stage1"></a> 
+<a href="stage5.html"><img src="img/icons/s5-icon.png" alt="stage1"></a> 
+<a href="stage7.html"><img src="img/icons/s7-icon.png" alt="stage1"></a> 
+<a href="stage8.html"><img src="img/icons/s8-icon.png" alt="stage1"></a> 
+<a href="stage9.html"><img src="img/icons/s9-icon.png" alt="stage1"></a> 
+</p>
+
+<h2> Project site</h2>
+<p>
+You can find this <a href="https://github.com/mki1967/mki-search-game"> project</a> 
+on my <a href="https://github.com/mki1967"> GitHub account</a> 
+</p>
+
+</body>
+</html>
