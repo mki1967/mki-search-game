@@ -6,7 +6,7 @@ MKI SEARCHING GAME is a simple WebGl game,
 where you have to find and collect tokens randomly scattered 
 in a 3D stage.
 
-The working on-line version with description is placed at: http://.../MKI-Search-Game.html
+The working on-line version with description is placed at: http://goo.gl/5hgx9V
 
 MKI SEARCHING GAME comes with ABSOLUTELY NO WARRANTY.
 This is free software, and you are welcome to redistribute it
