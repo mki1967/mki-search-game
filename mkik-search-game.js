@@ -728,7 +728,7 @@ function drawTokens()
     for(i=0; i<tokenPositions.length; i++) {
 	if( ! tokenPositions[i].collected ) {
             gl.uniform3f(shaderProgram.vMov, tokenPositions[i][0],  tokenPositions[i][1],tokenPositions[i][2] );
-            drawGraph(token) // test
+            drawGraph(token); // test
 	} 
     }
 
@@ -775,7 +775,7 @@ function startGame()
 	  "      center -  set observer upright\n"+
 	  "      left/up/right/down-middle - like Arrow Keys\n" 
 	 );
-    drawTokens();
+    drawScene();
     startTime = (new Date()).getTime();
 }
 
