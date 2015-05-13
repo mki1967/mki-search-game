@@ -179,6 +179,8 @@ function maxDistance(v1,v2)
     return Math.max(dx,dy,dz); 
 }
 
+var collectedAlert = false;
+
 function checkTokens()
 {
     var i;
@@ -189,6 +191,7 @@ function checkTokens()
             stopIntervalAction();
             tokenPositions[i].collected= true
             tokenPositions.remaining--;
+            collectedAlert= true;
 	}
     }
 }
@@ -699,6 +702,13 @@ function initBuffers(graph) {
 function drawScene() {
     gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
     gl.depthFunc(gl.LEQUAL);
+    if(collectedAlert) {
+	gl.clearColor(1.0, 0.0, 0.0, 1.0); // RED
+	gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        collectedAlert=false;
+	return;
+    }
+    gl.clearColor(bgColor[0], bgColor[1], bgColor[2], 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
 
