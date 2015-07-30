@@ -23,7 +23,7 @@
 /*** et-webgl.js -- BEGIN  ***/
 
 /* GLOBAL VARIABLES 1 */
-
+/*jshint multistr: true */
 var VERTEX_SHADER_STRING = " \
 attribute vec3 aVertexPosition; \
 attribute vec4 aVertexColor; \
@@ -34,16 +34,14 @@ varying vec4 vColor; \
 void main(void) { \
 gl_Position = uPMatrix * uMVMatrix * vec4(mov+aVertexPosition, 1.0); \
 vColor = aVertexColor; \
-} \
-";
+}";
 
 var FRAGMENT_SHADER_STRING = " \
 precision mediump float; \
 varying vec4 vColor; \
 void main(void) { \
 gl_FragColor = vColor; \
-} \
-";
+}";
 
 
 // var bgColor=[0,0,0]; // defined in test.js
@@ -51,7 +49,7 @@ gl_FragColor = vColor; \
 // projection parameters
 
 
-var projection = new Object();
+var projection = {}; // new Object();
 projection.zNear = 0.25;
 projection.zFar  = 300;
 projection.zoomY = 3.0;
@@ -72,7 +70,7 @@ var XMargin = 30;
 var YMargin = 30;
 var ZMargin = 30;
 
-var frameBox = new Object(); // framebox for better orientation
+var frameBox = {}; // new Object(); // framebox for better orientation
 
 function makeFrameBox() {
     var v000= [traveler.vMin[0]-XMargin, traveler.vMin[1]-YMargin,traveler.vMin[2]-ZMargin ];
@@ -189,7 +187,7 @@ function checkTokens()
     {
 	if(!tokenPositions[i].collected && maxDistance(vTraveler, tokenPositions[i])<1) {
             stopIntervalAction();
-            tokenPositions[i].collected= true
+            tokenPositions[i].collected= true;
             tokenPositions.remaining--;
             collectedAlert= true;
 	}
@@ -339,7 +337,7 @@ var trianglesBuffer;
 
 
 function glVector3( x,y,z ){
-    return new Float32Array(x,y,z)
+    return new Float32Array(x,y,z);
 }
 
 function glMatrix4(  xx, yx, zx, wx,
@@ -424,9 +422,9 @@ function modelViewMatrix(viewer)
 var intervalAction=null;
 
 function stopIntervalAction(){
-    if(intervalAction != null) {
+    if(intervalAction !== null) {
 	window.clearInterval(intervalAction);
-	intervalAction=null
+	intervalAction=null;
     }
 }
 
@@ -439,7 +437,7 @@ function onWindowResize() {
       }
     */
 
-    stopIntervalAction()
+    stopIntervalAction();
 
     var wth = parseInt(window.innerWidth);
     var hth = parseInt(window.innerHeight);
@@ -468,41 +466,41 @@ function onMouseDown(evt){
     var xSector= Math.floor(3*evt.clientX/wth);
     var ySector= Math.floor(3*evt.clientY/hth);
 
-    sectorString = ""+xSector+","+ySector
+    sectorString = ""+xSector+","+ySector;
 
-    if(intervalAction != null) {
+    if(intervalAction !== null) {
 	// window.clearInterval(intervalAction);
 	// intervalAction=null
 	stopIntervalAction();
-	return
+	return;
     }
 
     switch(sectorString)
     {
     case "0,1":
-	intervalAction=window.setInterval(left,100);
+	intervalAction=window.setInterval(left,50);
 	break;
     case "2,1":
-	intervalAction=window.setInterval(right,100);
+	intervalAction=window.setInterval(right,50);
 	break;
     case "1,0":
-	intervalAction=window.setInterval(up,100);
+	intervalAction=window.setInterval(up,50);
 	break;
     case "1,2":
-	intervalAction=window.setInterval(down,100);
+	intervalAction=window.setInterval(down,50);
 	break;
     case "2,0":
-	intervalAction=window.setInterval(forward,100);
+	intervalAction=window.setInterval(forward,50);
 	break;
     case "2,2":
-	intervalAction=window.setInterval(back,100);
+	intervalAction=window.setInterval(back,50);
 	break;
     case "1,1":
 	traveler.rotYZ=0; drawScene();
 	break;
     case "0,0":
 	currentAction = ACTION_MOVE;
-	break
+	break;
     case "0,2":
 	currentAction = ACTION_ROTATE;
 	break;
@@ -595,7 +593,7 @@ function onKeyDown(e){
 	// jumpToNearestEndtpoint();
 	break;
 
-    };
+    }
     // editor.redraw();
     // alert(code); // for tests
     // drawScene(); // included in actions
@@ -722,11 +720,11 @@ function drawScene() {
     drawGraph(scene);
     drawGraph(frameBox);
 
-    drawTokens()
+    drawTokens();
 
-    if(tokenPositions.remaining==0) {
+    if(tokenPositions.remaining===0) {
 	alert("CONGRATULATIONS !!!\n YOU HAVE COLLECTED ALL TOKENS.\n"+
-              "Time: "+((new Date).getTime()-startTime)+" milliseconds" );
+              "Time: "+((new Date()).getTime()-startTime)+" milliseconds" );
 	startGame();
     }
 }
@@ -829,5 +827,5 @@ function webGLStart() {
 
 }
 
-
+window.onload = webGLStart;
 
